@@ -8,6 +8,7 @@ function PostsPage() {
 
   return (
     <div>
+      <button onClick={() => console.log(posts)}>CLG</button>
       <SortPosts />
       <div className='all-posts'>
         {posts.map((post) => (

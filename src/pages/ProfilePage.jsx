@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useStore } from '../store/myStore';
 
 function ProfilePage() {
-  const { currentUser, updateUser, users } = useStore();
+  const { currentUser, updateUser, users, updatePostsByUsername } = useStore();
   const [newUsername, setNewUsername] = useState(currentUser);
 
   function handleUsernameChange() {
@@ -10,6 +10,7 @@ function ProfilePage() {
     if (user) {
       alert('Username is already taken. Please choose another.');
     } else {
+      updatePostsByUsername(currentUser, newUsername);
       updateUser(newUsername);
     }
   }

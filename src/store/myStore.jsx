@@ -97,4 +97,13 @@ export const useStore = create((set) => ({
         return 0;
       }),
     })),
+
+  updatePostsByUsername: (oldUsername, newUsername) =>
+    set((state) => ({
+      posts: state.posts.map((post) =>
+        post.username === oldUsername
+          ? { ...post, username: newUsername }
+          : post
+      ),
+    })),
 }));
